@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
-from models import Supplier, Product, Pizzaplace, Warehouse, WarehouseProduct
+from .models import Supplier, Product, Pizzaplace, Warehouse, WarehouseProduct
 
 @admin.register(Supplier)
 class SupplierAdmin(ModelAdmin):

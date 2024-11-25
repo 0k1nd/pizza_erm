@@ -1,11 +1,10 @@
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Supplier(models.Model):
     name = models.CharField(max_length=100)
     contact_email = models.EmailField()
-    contact_phone = PhoneNumberField(unique=True)
+    # contact_phone = PhoneNumberField(unique=True)
     address = models.TextField(max_length=1000)
 
     def __str__(self):
@@ -41,13 +40,13 @@ class Pizzaplace(models.Model):
     name = models.CharField(max_length=100)
     address = models.TextField(max_length=1000)
     contact_email = models.EmailField()
-    contact_phone = PhoneNumberField(unique=True)
+    # contact_phone = PhoneNumberField(unique=True)
 
     def __str__(self):
         return f'{self.id} {self.name}'
 
 class Warehouse(models.Model):
-    Pizzahouse = models.ForeignKey(Pizzaplace, models.SET_NULL, related_name="warehouses")
+    Pizzahouse = models.ForeignKey(Pizzaplace, on_delete=models.CASCADE, related_name="warehouses")
 
     def __str__(self):
         return f'{self.id} Pizzahouse:{self.Pizzahouse.name}'
