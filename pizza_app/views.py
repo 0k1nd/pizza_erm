@@ -10,3 +10,6 @@ class ProductView(ModelViewSet):
     filterset_fields = ['price', 'id', 'category', 'supplier']
     search_fields = ['name', 'category']
 
+class SupplierView(ModelViewSet):
+    queryset = Supplier.objects.all()
+    serializer_class = SupplierSerializer
